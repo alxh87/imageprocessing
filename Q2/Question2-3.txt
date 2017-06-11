@@ -1,0 +1,11 @@
+
+Explain pros and cons of the two programs in Question 2-1 and Question 2-2.
+
+Question 2-1 (uncorrected)
+This question follows the question as specifically asked, however this runs into a problem when neighbouring pixels contain noise. This surrounding noise can cause the average colour and brightness of the region to be too high or low, which may cause incorrect pixel correction. Even worse, it can result in the changing on non-noise pixels if they are checked before their noisy neighbours.
+
+Questions 2-1 (corrected)
+I attempted to compensate for the problem of average brightness by comparing the brightness of pixels to the brightness of all neighbours, instead of the average. If a pixel has a very different brightness to ALL four of its neighbours, the pixel will be corrected. This prevents changing correct pixels, but results in groups of similar noisy pixels remaining undetected and unchanged. Improvement is seen where single noisy pixels were present, but 2+ noisy pixels remain highly visible.
+
+Question 2-2
+This is the most effective noise reduction program. While it still uses the region average brightness to determine if a pixel brightness is incorrect, by checking a larger region the influence of noisy clusters may be reduced, and by removing the upper and lower brightness pixels during correction, surrounding noise is less likely to influence the corrected colour and brightness. However this does take longer to process, with times observed double that of Q1corrected. While there may be further improvements to this via code optimisation, the greater complexity of detection and correction, and the larger region size, will result in longer processing times. 
